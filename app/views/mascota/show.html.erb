@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @mascotum.nombre %>
+</p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @mascotum.doctor %>
+</p>
+
+<p>
+  <strong>Duenio:</strong>
+  <%= @mascotum.duenio %>
+</p>
+
+<%= link_to 'Edit', edit_mascotum_path(@mascotum) %> |
+<%= link_to 'Back', mascota_path %>

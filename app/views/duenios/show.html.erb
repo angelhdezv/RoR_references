@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @duenio.nombre %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @duenio.direccion %>
+</p>
+
+<%= link_to 'Edit', edit_duenio_path(@duenio) %> |
+<%= link_to 'Back', duenios_path %>

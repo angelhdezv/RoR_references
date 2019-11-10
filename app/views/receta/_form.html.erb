@@ -1,0 +1,27 @@
+<%= form_with(model: recetum, local: true) do |form| %>
+  <% if recetum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recetum.errors.count, "error") %> prohibited this recetum from being saved:</h2>
+
+      <ul>
+      <% recetum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Doctor_id %>
+    <%= form.text_field :Doctor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Mascota_id %>
+    <%= form.text_field :Mascota_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

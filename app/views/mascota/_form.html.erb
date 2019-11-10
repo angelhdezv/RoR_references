@@ -1,0 +1,32 @@
+<%= form_with(model: mascotum, local: true) do |form| %>
+  <% if mascotum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mascotum.errors.count, "error") %> prohibited this mascotum from being saved:</h2>
+
+      <ul>
+      <% mascotum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :doctor_id %>
+    <%= form.text_field :doctor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duenio_id %>
+    <%= form.text_field :duenio_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

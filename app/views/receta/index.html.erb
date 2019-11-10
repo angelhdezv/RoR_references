@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Receta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Doctor</th>
+      <th>Mascota</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @receta.each do |recetum| %>
+      <tr>
+        <td><%= recetum.Doctor %></td>
+        <td><%= recetum.Mascota %></td>
+        <td><%= link_to 'Show', recetum %></td>
+        <td><%= link_to 'Edit', edit_recetum_path(recetum) %></td>
+        <td><%= link_to 'Destroy', recetum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recetum', new_recetum_path %>
