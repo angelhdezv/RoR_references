@@ -25,6 +25,10 @@
     <%= form.label :duenio_id %>
     <%= form.text_field :duenio_id %>
   </div>
+  <div class="field">
+    <%= form.label :nombre, "Imagen de la maascota" %>
+    <%= form.file_field :image %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

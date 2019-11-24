@@ -69,6 +69,6 @@ class DueniosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def duenio_params
-      params.require(:duenio).permit(:nombre, :direccion)
+      params.require(:duenio).permit(:nombre, :direccion, :image)
     end
 end

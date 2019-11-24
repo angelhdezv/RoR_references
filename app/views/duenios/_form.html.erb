@@ -21,6 +21,11 @@
     <%= form.text_field :direccion %>
   </div>
 
+  <div class="field">
+    <%= form.label :nombre, "Imagen del dueño" %>
+    <%= form.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

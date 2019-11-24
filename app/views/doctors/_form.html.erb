@@ -16,6 +16,10 @@
     <%= form.text_field :nombre %>
   </div>
 
+  <div class="field">
+    <%= form.label :nombre, "Imagen del doctor" %>
+    <%= form.file_field :image %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

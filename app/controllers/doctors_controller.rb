@@ -7,6 +7,10 @@ class DoctorsController < ApplicationController
     @doctors = Doctor.all
   end
 
+  def doctoradmin
+    @doctors = Doctor.all
+  end
+
   # GET /doctors/1
   # GET /doctors/1.json
   def show
@@ -69,6 +73,6 @@ class DoctorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doctor_params
-      params.require(:doctor).permit(:nombre)
+      params.require(:doctor).permit(:nombre, :image)
     end
 end

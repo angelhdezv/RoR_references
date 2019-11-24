@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'doctors/doctoradmin'
   get 'welcome/index'
   resources :tratamientos
   resources :medicamentos
