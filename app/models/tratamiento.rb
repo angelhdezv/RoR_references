@@ -1,4 +1,4 @@
 class Tratamiento < ApplicationRecord
-  belongs_to :receta
-  belongs_to :medicamento
+  belongs_to :receta,  optional: true
+  belongs_to :medicamento,  optional: true
 end

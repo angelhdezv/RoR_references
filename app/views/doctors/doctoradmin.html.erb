@@ -18,6 +18,7 @@
           <h5 class="card-title">Clave: <%= doctor.id %></h5>
           <p class="card-text"><%= doctor.nombre %></p>
           <a href="<%= url_for(doctor)%>" class="btn btn-primary">Detalles</a>
+         <%= link_to 'Eliminar', doctor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
         </div>
       </div>
       </div>

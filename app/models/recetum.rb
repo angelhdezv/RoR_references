@@ -1,4 +1,4 @@
 class Recetum < ApplicationRecord
-  belongs_to :Doctor
-  belongs_to :Mascota
+  belongs_to :Doctor,  optional: true
+  belongs_to :Mascota,  optional: true
 end

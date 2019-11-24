@@ -28,7 +28,17 @@
 
   <%= link_to 'Editar datos', edit_mascotum_path(@mascotum), class:"btn btn-secondary" %> |
   <%= link_to 'Atras', mascota_path, class:"btn btn-primary" %>
- 
+
+  <br><br>
+  <h1 class="display-3">Agregar un Tratamiento</h1>
+   <%= form_tag mascota_agregarTratamiento_path, method: :get, style:"margin:0px" do %>
+      <%= text_field_tag :mascota_id,@mascotum.id, style:"display:none"%>
+      <%= text_field_tag :doctor_id,@mascotum.doctor.id, style:"display:none"%>
+      <%= text_area_tag :descripcion, nil ,{class:"form-control", rows:3}%>
+      <%= content_tag :button, type: :submit, style: "background:none; border:none; width: 100%; padding: 10px;" do%>
+          agregar
+      <%end%>
+    <%end%>
   
 <br>
 <br>
@@ -67,6 +77,28 @@
       </div>
        
     </div>
+    <h1 class="display-4">Esta mascota tiene actualmente <%= Recetum.where("mascota_id=?",@mascotum.id).count %> tratamientos</h1>
+<div class="row">
+
+    <% Recetum.where("mascota_id=?",@mascotum.id).each do |receta| %>
+
+      <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+         <div class="card-header">
+            Clave de la receta: <%= receta.id %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <% Tratamiento.where("receta_id=?",receta.id).each do |tratamiento| %>
+            <li class="list-group-item"><%=tratamiento.descripcion%></li>
+            <%end%>
+          </ul>
+                    <%= link_to 'Eliminar', receta, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+
+      </div>
+      </div>
+
+    <% end %>
+</div>
 </div>
 
 

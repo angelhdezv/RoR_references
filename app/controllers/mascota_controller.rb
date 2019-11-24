@@ -21,9 +21,17 @@ class MascotaController < ApplicationController
   def edit
   end
 
+  def agregarTratamiento
+    @mascota=Mascotum.find(params[:mascota_id])
+    r=Recetum.create(doctor_id: params[:doctor_id], mascota_id: params[:mascota_id] )
+    Tratamiento.create(receta_id: r.id, descripcion: params[:descripcion])
+    redirect_to @mascota
+  end
+
   # POST /mascota
   # POST /mascota.json
   def create
+
     @mascotum = Mascotum.new(mascotum_params)
 
     respond_to do |format|
@@ -54,6 +62,14 @@ class MascotaController < ApplicationController
   # DELETE /mascota/1
   # DELETE /mascota/1.json
   def destroy
+    mascotas=Recetum.where("mascota_id=?",@mascotum.id)
+    mascotas.each do |m|
+      trat=Tratamiento.where("receta_id=?",m.id)
+    trat.each do |m|
+      m.destroy
+    end 
+      m.destroy
+    end  
     @mascotum.destroy
     respond_to do |format|
       format.html { redirect_to mascota_url, notice: 'Mascotum was successfully destroyed.' }

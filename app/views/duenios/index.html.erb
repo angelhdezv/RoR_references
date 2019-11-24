@@ -19,6 +19,8 @@
           <p class="card-text"><%= duenio.nombre %></p>
           <p class="card-text"><%= duenio.direccion %></p>
           <a href="<%= url_for(duenio)%>" class="btn btn-primary">Detalles</a>
+          <%= link_to 'Eliminar', duenio, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+  
         </div>
       </div>
       </div>

@@ -20,6 +20,8 @@
           <p class="card-text"><%= mascotum.duenio.nombre %></p>
           <p class="card-text"><%= mascotum.doctor.nombre %></p>
           <a href="<%= url_for(mascotum)%>" class="btn btn-primary">Detalles</a>
+          <%= link_to 'Eliminar', mascotum, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+
         </div>
       </div>
       </div>

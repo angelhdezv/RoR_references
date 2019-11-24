@@ -4,7 +4,12 @@ class DoctorsController < ApplicationController
   # GET /doctors
   # GET /doctors.json
   def index
-    @doctors = Doctor.all
+    if current_user==nil
+      @doctors = Doctor.all
+    else
+      redirect_to doctors_doctoradmin_path
+    end 
+    
   end
 
   def doctoradmin
@@ -63,6 +68,15 @@ class DoctorsController < ApplicationController
   # DELETE /doctors/1
   # DELETE /doctors/1.json
   def destroy
+    mascotas=Mascotum.where("doctor_id=?",@doctor.id)
+    mascotas.each do |m|
+      m.destroy
+    end  
+    mascotas=Recetum.where("doctor_id=?",@doctor.id)
+    mascotas.each do |m|
+      m.destroy
+    end  
+
     @doctor.destroy
     respond_to do |format|
       format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }

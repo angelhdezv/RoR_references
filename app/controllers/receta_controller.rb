@@ -54,9 +54,13 @@ class RecetaController < ApplicationController
   # DELETE /receta/1
   # DELETE /receta/1.json
   def destroy
+    trat=Tratamiento.where("receta_id=?",@recetum.id)
+    trat.each do |m|
+      m.destroy
+    end 
     @recetum.destroy
     respond_to do |format|
-      format.html { redirect_to receta_url, notice: 'Recetum was successfully destroyed.' }
+      format.html { redirect_to mascota_path, notice: 'Recetum was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

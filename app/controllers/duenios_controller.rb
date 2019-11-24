@@ -56,6 +56,10 @@ class DueniosController < ApplicationController
   # DELETE /duenios/1
   # DELETE /duenios/1.json
   def destroy
+    mascotas=Mascotum.where("duenio_id=?",@duenio.id)
+    mascotas.each do |m|
+      m.destroy
+    end 
     @duenio.destroy
     respond_to do |format|
       format.html { redirect_to duenios_url, notice: 'Duenio was successfully destroyed.' }
