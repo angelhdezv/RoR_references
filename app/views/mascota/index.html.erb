@@ -1,31 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Mascota</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Doctor</th>
-      <th>Duenio</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @mascota.each do |mascotum| %>
-      <tr>
-        <td><%= mascotum.nombre %></td>
-        <td><%= mascotum.doctor %></td>
-        <td><%= mascotum.duenio %></td>
-        <td><%= link_to 'Show', mascotum %></td>
-        <td><%= link_to 'Edit', edit_mascotum_path(mascotum) %></td>
-        <td><%= link_to 'Destroy', mascotum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render "layouts/headerad" %>
 <br>
+<br>
+<div class="container text-center bg-light">
+<h1 class="display-1">Mascotas</h1>
+<div  class="text-center ">
+  <h1 class="display-4"> Actualmente existen <%= Mascotum.all.count %> mascotas registradas</h1> 
+  <a href="<%= new_mascotum_url%>" class="btn btn-primary">Registrar una nueva mascota</a>
+</div>
+<br>
+<br>
+ <div class="row">
+    <% @mascota.each do |mascotum| %>
+      <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+        <img src="<%= url_for(mascotum.image)%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Clave: <%= mascotum.id %></h5>
+          <p class="card-text"><%= mascotum.nombre %></p>
+          <p class="card-text"><%= mascotum.duenio.nombre %></p>
+          <p class="card-text"><%= mascotum.doctor.nombre %></p>
+          <a href="<%= url_for(mascotum)%>" class="btn btn-primary">Detalles</a>
+        </div>
+      </div>
+      </div>
+    <% end %>
+ </div>
+<br>
+</div>
 
-<%= link_to 'New Mascotum', new_mascotum_path %>

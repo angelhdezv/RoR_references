@@ -1,6 +1,19 @@
-<h1>Editing Doctor</h1>
+
+<%= render "layouts/headerad" %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container text-center bg-light">
+
+<h1>Editar al doctor <%= @doctor.nombre%></h1>
 
 <%= render 'form', doctor: @doctor %>
-
-<%= link_to 'Show', @doctor %> |
-<%= link_to 'Back', doctors_path %>
+<%= link_to 'Detalles actuales', @doctor %> |
+<%= link_to 'atras', doctors_doctoradmin_path %>
+</div>

@@ -1,14 +1,66 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @duenio.nombre %>
-</p>
+<%= render "layouts/headerad" %>
+<br>
+<br>
+<br>
+<div class="container text-center bg-light">
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @duenio.direccion %>
-</p>
+<h1>Datos del cliente <%= @duenio.nombre%></h1>
+  
+  <p>
+    <strong>Clave:</strong>
+    <%= @duenio.id %>
+  </p>
+  <p>
+    <strong>Nombre:</strong>
+    <%= @duenio.nombre %>
+  </p>
+  <p>
+    <strong>Direccion:</strong>
+    <%= @duenio.direccion %>
+  </p>
 
-<%= link_to 'Edit', edit_duenio_path(@duenio) %> |
-<%= link_to 'Back', duenios_path %>
+  <div class="card bg-dark text-white">
+  <img src="<%= url_for(@duenio.image)%>" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+  <%= link_to 'Editar datos', edit_duenio_path(@duenio), class:"btn btn-secondary" %> |
+  <%= link_to 'Atras', duenios_path, class:"btn btn-primary" %>
+ 
+  
+<br>
+<br>
+<br>
+<h1 class="display-4">Este cliente tiene actualmente <%= @mascotas.count %> mascotas registradas</h1>
+<div class="row">
+
+    <% @mascotas.each do |mascota| %>
+
+      <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+        <img src="<%= url_for(mascota.image)%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Clave de la mascota: <%= mascota.id %></h5>
+          <p class="card-text"><%= mascota.nombre %></p>
+        </div>
+      </div>
+      </div>
+
+    <% end %>
+</div>
+</div>
+
+
+
+
+
+
+
+
+

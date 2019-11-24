@@ -1,6 +1,20 @@
-<h1>Editing Duenio</h1>
+
+<%= render "layouts/headerad" %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container text-center bg-light">
+
+<h1>Editar al dueño <%= @duenio.nombre%></h1>
 
 <%= render 'form', duenio: @duenio %>
+<%= link_to 'Detalles actuales', @duenio %> |
+<%= link_to 'atras', duenios_path %>
+</div>
 
-<%= link_to 'Show', @duenio %> |
-<%= link_to 'Back', duenios_path %>

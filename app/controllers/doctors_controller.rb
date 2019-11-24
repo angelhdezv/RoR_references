@@ -8,12 +8,17 @@ class DoctorsController < ApplicationController
   end
 
   def doctoradmin
-    @doctors = Doctor.all
+    if current_user!=nil
+      @doctors = Doctor.all
+    else
+      redirect_to root_path
+    end    
   end
 
   # GET /doctors/1
   # GET /doctors/1.json
   def show
+    @mascotas=Mascotum.where("doctor_id=?", @doctor.id)
   end
 
   # GET /doctors/new

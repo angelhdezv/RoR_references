@@ -10,6 +10,8 @@ class DueniosController < ApplicationController
   # GET /duenios/1
   # GET /duenios/1.json
   def show
+    @mascotas=Mascotum.where("duenio_id=?", @duenio.id)
+
   end
 
   # GET /duenios/new

@@ -1,15 +1,16 @@
 <nav class="navbar navbar-dark bg-dark"  style="width:100%;position:fixed; z-index:10;">
+    
+  <a class="navbar-brand" href="">Admin - Veterinaria M&A</a>
+  <a class="navbar-brand" href="/mascota">Mascotas</a>
+  <a class="navbar-brand" href="/duenios">Dueños</a>
+  <a class="navbar-brand" href="/doctors/doctoradmin">Doctores</a>
  
-  <a class="navbar-brand" href="/">Veterinaria M&A</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link " href="/">Inicio</a>
-      <a class="nav-item nav-link " href="/doctors/">Nuestros doctores</a>
-      <a class="nav-item nav-link" href="<%= new_user_session_url%>">Iniciar Sesion</a>
-
+      <%= link_to "Salir del sistema", destroy_user_session_path, :method => :delete, class:"nav-item nav-link" %>
     </div>
   </div>
 

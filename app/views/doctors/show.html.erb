@@ -1,9 +1,60 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @doctor.nombre %>
-</p>
+<%= render "layouts/headerad" %>
+<br>
+<br>
+<br>
+<div class="container text-center bg-light">
 
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<h1>Datos del doctor <%= @doctor.nombre%></h1>
+  
+  <p>
+    <strong>Clave:</strong>
+    <%= @doctor.id %>
+  </p>
+  <p>
+    <strong>Nombre:</strong>
+    <%= @doctor.nombre %>
+  </p>
+
+  <div class="card bg-dark text-white">
+  <img src="<%= url_for(@doctor.image)%>" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    
+  </div>
+</div>
+<br>
+<br>
+<br>
+<% if current_user!=nil%>
+  <%= link_to 'Editar datos', edit_doctor_path(@doctor), class:"btn btn-secondary" %> |
+  <%= link_to 'Atras', doctors_doctoradmin_path, class:"btn btn-primary" %>
+<%else%>  
+  <%= link_to 'Atras', doctors_path, class:"btn btn-primary" %>
+<%end%>  
+  
+<br>
+<br>
+<br>
+<h1 class="display-4">Este doctor atiende actualmente <%= @mascotas.count %> mascotas</h1>
+<div class="row">
+
+    <% @mascotas.each do |mascota| %>
+
+      <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+        <img src="<%= url_for(mascota.image)%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Clave de la mascota: <%= mascota.id %></h5>
+          <p class="card-text"><%= mascota.nombre %></p>
+        </div>
+      </div>
+      </div>
+
+    <% end %>
+</div>
+</div>
+
+
+
+
+

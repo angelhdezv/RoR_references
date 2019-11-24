@@ -8,7 +8,7 @@
 
 <h1 class="display-1">Nuestros doctores</h1>
 <div  class="text-center ">
-  <p>En M&A nos preocupamos por la seguridad y por la salud de nuestras mascotas, por eso les presentamos una lista con nuestros doctores veterinarios altamente capacitados, para que usted y su familia puedan estar tranquilos con la seguridad de sus mascotas</p>
+  <p>En M&A nos preocupamos por la seguridad y por la salud de nuestras mascotas, por eso les presentamos una lista con nuestros doctores veterinarios altamente capacitados, para que usted y su familia puedan estar tranquilos con la integridad de sus mascotas</p>
   <h1 class="display-4"> Actualmente contamos con <%= Doctor.all.count %> doctores</h1> 
 
 </div>
@@ -26,6 +26,7 @@
         <div class="card-body">
           <h5 class="card-title">Clave del doctor: <%= doctor.id %></h5>
           <p class="card-text"><%= doctor.nombre %></p>
+          <a href="<%= url_for(doctor)%>" class="btn btn-primary">Detalles</a>
         </div>
       </div>
       </div>

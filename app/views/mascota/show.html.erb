@@ -1,19 +1,79 @@
-<p id="notice"><%= notice %></p>
+<%= render "layouts/headerad" %>
+<br>
+<br>
+<br>
+<div class="container text-center bg-light">
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @mascotum.nombre %>
-</p>
+<h1>Datos de la mascota <%= @mascotum.nombre%></h1>
+  
+  <p>
+    <strong>Clave:</strong>
+    <%= @mascotum.id %>
+  </p>
+  <p>
+    <strong>Nombre:</strong>
+    <%= @mascotum.nombre %>
+  </p>
+ 
 
-<p>
-  <strong>Doctor:</strong>
-  <%= @mascotum.doctor %>
-</p>
+  <div class="card bg-dark text-white">
+  <img src="<%= url_for(@mascotum.image)%>" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    
+  </div>
+</div>
+<br>
+<br>
+<br>
 
-<p>
-  <strong>Duenio:</strong>
-  <%= @mascotum.duenio %>
-</p>
+  <%= link_to 'Editar datos', edit_mascotum_path(@mascotum), class:"btn btn-secondary" %> |
+  <%= link_to 'Atras', mascota_path, class:"btn btn-primary" %>
+ 
+  
+<br>
+<br>
+<br>
+ <div class="row">
+  <div class="col ">
+      <h1 class="display-4" href="#ab">Dueño</h1>
+      <div class="card">
+        <img src="<%= url_for(@mascotum.duenio.image)%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= @mascotum.duenio.nombre%></h5>
+          <p class="card-text">Clave del cliente: <%= @mascotum.duenio.id%></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= @mascotum.duenio.direccion%></li>
+        </ul>
+        <div class="card-body">
+          <a href="<%= url_for(@mascotum.duenio)%>" class="btn btn-primary">Detalles</a>
+        </div>
+      </div>
+       
+    </div>
+    
+    <div class="col">
+      <h1 class="display-4" href="#ab">Doctor Asignado</h1>
+      <div class="card">
+        <img src="<%= url_for(@mascotum.doctor.image)%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= @mascotum.doctor.nombre%></h5>
+          <p class="card-text">Clave del doctor: <%= @mascotum.doctor.id%></p>
+        </div>
+        
+        <div class="card-body">
+          <a href="<%= url_for(@mascotum.doctor)%>" class="btn btn-primary">Detalles</a>
+        </div>
+      </div>
+       
+    </div>
+</div>
 
-<%= link_to 'Edit', edit_mascotum_path(@mascotum) %> |
-<%= link_to 'Back', mascota_path %>
+
+
+
+
+
+
+
+

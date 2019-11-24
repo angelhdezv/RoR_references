@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Duenios</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Direccion</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @duenios.each do |duenio| %>
-      <tr>
-        <td><%= duenio.nombre %></td>
-        <td><%= duenio.direccion %></td>
-        <td><%= link_to 'Show', duenio %></td>
-        <td><%= link_to 'Edit', edit_duenio_path(duenio) %></td>
-        <td><%= link_to 'Destroy', duenio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render "layouts/headerad" %>
 <br>
-
-<%= link_to 'New Duenio', new_duenio_path %>
+<br>
+<div class="container text-center bg-light">
+<h1 class="display-1">Clientes</h1>
+<div  class="text-center ">
+  <h1 class="display-4"> Actualmente existen <%= Duenio.all.count %> clientes registrados</h1> 
+  <a href="<%= new_duenio_url%>" class="btn btn-primary">Registrar un nuevo cliente</a>
+</div>
+<br>
+<br>
+ <div class="row">
+    <% @duenios.each do |duenio| %>
+      <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+        <img src="<%= url_for(duenio.image)%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Clave: <%= duenio.id %></h5>
+          <p class="card-text"><%= duenio.nombre %></p>
+          <p class="card-text"><%= duenio.direccion %></p>
+          <a href="<%= url_for(duenio)%>" class="btn btn-primary">Detalles</a>
+        </div>
+      </div>
+      </div>
+    <% end %>
+ </div>
+<br>
+</div>

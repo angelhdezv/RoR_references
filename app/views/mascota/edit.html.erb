@@ -1,6 +1,20 @@
-<h1>Editing Mascotum</h1>
+
+<%= render "layouts/headerad" %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container text-center bg-light">
+
+<h1>Editar a la Mascota <%= @mascotum.nombre%></h1>
 
 <%= render 'form', mascotum: @mascotum %>
+<%= link_to 'Detalles actuales', @mascotum %> |
+<%= link_to 'atras', mascota_path %>
+</div>
 
-<%= link_to 'Show', @mascotum %> |
-<%= link_to 'Back', mascota_path %>
